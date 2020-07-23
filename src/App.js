@@ -17,7 +17,7 @@ function App() {
                     <div className="container pt-4">
                         <Switch>
                             <Route path={'/'} exact component={Home}/>
-                            <Route path={'/'} component={About}/>
+                            <Route path={'/about'} component={About}/>
                         </Switch>
                     </div>
                 </BrowserRouter>
