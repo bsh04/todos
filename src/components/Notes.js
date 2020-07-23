@@ -1,7 +1,9 @@
-import React from "react"
-import { isEmpty } from "lodash"
+import React, {useContext} from "react"
+import {isEmpty} from "lodash"
+import {AlertContext} from "../context/alert/alertContext";
 
-export const Notes = ({notes}) => {
+export const Notes = ({notes, onRemove}) => {
+    const alert = useContext(AlertContext)
     return (
         <>
             <ul className="list-group" key={notes}>
@@ -16,11 +18,21 @@ export const Notes = ({notes}) => {
                                 key={index}
                             >
                                 {note.title}
-                                <button type="button" className="btn btn-outline-success">Performed</button>
+                                <button
+                                    type="button"
+                                    className="btn btn-outline-success"
+                                    onClick={() => {
+                                        onRemove(note.id)
+                                        alert.show("You performed todos!", "success")
+                                    }}
+                                >
+                                    Performed
+                                </button>
                             </li>
                         ))
                 }
             </ul>
         </>
     )
+
 }

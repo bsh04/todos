@@ -11,9 +11,9 @@ export const Form = () => {
         event.preventDefault()
         if (value.trim()) {
             firebase.addNote(value.trim()).then(() => {
-                alert.show("Todos has been create!", "success")
+                alert.show("Todos has been create!", "primary")
             }).catch(() => {
-                alert.show("Server error!", "success")
+                alert.show("Server error!", "danger")
             })
         } else {
             alert.show("Input title todos!")
@@ -29,9 +29,8 @@ export const Form = () => {
                     className="form-control"
                     placeholder="Input Todos"
                     value={value}
-                    onChange={e => setValue(e.target.value)}
+                    onChange={e => setValue(e.target.value) }
                 />
-
             </div>
         </form>
     )
