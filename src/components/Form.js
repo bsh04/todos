@@ -7,7 +7,11 @@ export const Form = () => {
 
     const submitHandler = event => {
         event.preventDefault()
-        alert.show(value, "success")
+        if (value.trim()) {
+            alert.show("Todos has been create!", "success")
+        } else {
+            alert.show("Input title todos!")
+        }
     }
 
     return (
