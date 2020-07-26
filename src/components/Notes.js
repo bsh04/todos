@@ -1,21 +1,21 @@
 import React, {useContext} from "react"
-import {isEmpty} from "lodash"
-import {AlertContext} from "../context/alert/alertContext";
+import {AlertContext} from "../context/alert/alertContext"
+import {TransitionGroup, CSSTransition} from 'react-transition-group'
 
 export const Notes = ({notes, onRemove}) => {
     const alert = useContext(AlertContext)
     return (
         <>
-            <ul className="list-group" key={notes}>
+            <TransitionGroup component="ul" className="list-group">
                 {
-                    isEmpty(notes)
-                        ?
-                        <h1 className="text-center pt-4">Not todos yet</h1>
-                        :
-                        notes.map((note, index) => (
+                    notes.map((note) => (
+                        <CSSTransition
+                            key={note.id}
+                            classNames={'note'}
+                            timeout={800}
+                        >
                             <li
                                 className="list-group-item d-flex justify-content-between align-items-center"
-                                key={index}
                             >
                                 {note.title}
                                 <button
@@ -29,9 +29,10 @@ export const Notes = ({notes, onRemove}) => {
                                     Performed
                                 </button>
                             </li>
-                        ))
+                        </CSSTransition>
+                    ))
                 }
-            </ul>
+            </TransitionGroup>
         </>
     )
 
