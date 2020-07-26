@@ -14,3 +14,17 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.alert-enter {
+  opacity: 0;
+}
+
+.alert-enter-active {
+  opacity: 1;
+  transition: opacity 500ms ease-out;
+}
+
+.alert-exit-active {
+  opacity: 0;
+  transition: opacity 500ms ease-out;
+}

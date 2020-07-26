@@ -29,7 +29,7 @@ export const Form = () => {
                     className="form-control"
                     placeholder="Input Todos"
                     value={value}
-                    onChange={e => setValue(e.target.value) }
+                    onChange={e => setValue(e.target.value)}
                 />
             </div>
         </form>
